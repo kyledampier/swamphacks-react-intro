@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Counter from "./components/Counter";
+import GPTCompletion from "./components/GPTCompletion";
+
+import { openai } from "./lib/OpenAIClient";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> Swamphacks React Demo </h1>
+      {/* <Counter /> */}
+      <h2> Counter Demo </h2>
+      <Counter color="green" style={{ marginLeft: "0.5em" }} />
+
+      <h2> API Calls Demo</h2>
+      <GPTCompletion openai={openai} />
     </div>
   );
 }
