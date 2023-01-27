@@ -3,10 +3,11 @@ import { useState } from "react";
 function ShowCompletion(props) {
   return (
     <div>
-      <h4>Completion</h4>
+      <h4>Prompt</h4>
       <p>
         <i> {props.prompt} </i>
       </p>
+      <h4>Completion</h4>
       <p>{props.completion}</p>
     </div>
   );
@@ -80,7 +81,9 @@ export default function GPTCompletion(props) {
       <button style={buttonStyle} onClick={onSubmit}>
         Submit
       </button>
-      {completion && <ShowCompletion prompt={promptContent} completion={completion} /> }
+      {completion && (
+        <ShowCompletion prompt={promptContent} completion={completion} />
+      )}
     </div>
   );
 }
