@@ -15,6 +15,7 @@ function ShowCompletion(props) {
 
 export default function GPTCompletion(props) {
   const [promptContent, setPromptContent] = useState("");
+  const [lastPrompt, setLastPrompt] = useState(null);
   const [completion, setCompletion] = useState(null);
 
   let inputStyle = {
@@ -61,6 +62,7 @@ export default function GPTCompletion(props) {
       prompt: prompt,
     });
 
+    setLastPrompt(prompt);
     setCompletion(response.data.choices[0].text);
   }
 
@@ -82,7 +84,7 @@ export default function GPTCompletion(props) {
         Submit
       </button>
       {completion && (
-        <ShowCompletion prompt={promptContent} completion={completion} />
+        <ShowCompletion prompt={lastPrompt} completion={completion} />
       )}
     </div>
   );
